@@ -38,6 +38,11 @@ function fraction_() {
           
 }
 
+function invalid() {
+    const valid = unit == 'gal' || unit == 'lbs' ||  unit == 'mi' || unit == 'L' || unit == 'kg' || unit == 'km'
+    if((num[0].split('/').length > 2) && !valid) return res.send('invalid number and unit');
+}
+invalid();
 
 function calc_mul(metric) {
         return Number(tnum)*metric;
@@ -76,10 +81,7 @@ convert_();
 
 
 
-function invalid() {
-    const valid = unit == 'gal' || unit == 'lbs' ||  unit == 'mi' || unit == 'L' || unit == 'kg' || unit == 'km'
-    if((num[0].split('/').length > 2) && !valid) return res.send('invalid number and unit');
-}
+
 });
 
 const port = process.env.PORT||3000;

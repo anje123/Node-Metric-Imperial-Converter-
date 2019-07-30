@@ -1,7 +1,7 @@
 const request = require('supertest');
-let {server} = require('../../index');
+let server;
 describe('/api/convert',()=>{
-    beforeEach(()=> server );
+    beforeEach(()=> server = require('../../index') );
     afterEach(()=>{server.close()})
     describe('POST',()=>{
         it('return 200 if succesful',async()=>{
